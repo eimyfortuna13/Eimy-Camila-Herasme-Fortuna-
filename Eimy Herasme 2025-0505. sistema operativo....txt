@@ -1,0 +1,47 @@
+Eimy Herasme 2025-0505
+lab modulo 2 
+
+Practica 1
+ 
+sudo dnf update -y && sudo dnf upgrade -y
+cat /etc/yum.repos.d/*.repo
+dnf repolist
+dnf search bashtop
+dnf info bashtop
+sudo dnf install epel-release -y
+sudo dnf update -y
+sudo dnf install bashtop -y
+bashtop
+sudo dnf remove bashtop -y
+sudo dnf autoremove -y
+
+Practica 2 
+
+sudo crontab -e
+0 23 * * * dnf update -y && dnf upgrade -y >> /var/log/auto-update.log 2>&1
+0 3 * * 0 /sbin/reboot
+sudo crontab -l
+sudo dnf install at -y
+sudo systemctl enable --now atd
+ls /tmp
+echo "rm -rf /tmp/*" | at now + 1 minute
+sleep 60 && ls /tmp
+
+Practica 3 
+
+sudo reboot
+lsblk
+sudo fdisk -l
+sudo fdisk /dev/sdb
+sudo mkfs.ext4 /dev/sdb1
+mkdir -p ~/Desktop/disco_nuevo
+sudo mount /dev/sdb1 ~/Desktop/disco_nuevo
+cd ~/Desktop/disco_nuevo
+sudo touch adrianalcantara.txt
+ls
+cd ~
+sudo umount ~/Desktop/disco_nuevo
+sudo mount /dev/sdb1 /mnt
+cd /mnt
+ls
+
